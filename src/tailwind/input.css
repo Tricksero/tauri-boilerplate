@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Use custom colors */
+.bg-custom-blue {
+  background-color: var(--custom-blue);
+}
+
+.text-custom-red {
+  color: var(--custom-red);
+}

@@ -1,37 +1,42 @@
-# Hello, Tauri! [![WebDriver](https://github.com/chippers/hello_tauri/actions/workflows/webdriver.yml/badge.svg)](https://github.com/chippers/hello_tauri/actions/workflows/webdriver.yml)
+# Tauri Boilerplate
+Repo based off:
+```
+https://github.com/chippers/hello_tauri
+```
+Using this Tutorial:
+```
+https://tauri.app/v1/guides/testing/webdriver/example/setup/
+```
 
-Absolute minimal hello world for [Tauri](https://github.com/tauri-apps/tauri). This exists so that I can independently
-experiment with things surrounding the resulting application. For now, this covers:
-* [Binary sizes](#binary-sizes)
-* [WebDriver testing in GitHub Actions](#webdriver-testing-in-github-actions)
+My attempt to create a minimal reusable boilerplate to create desktop stuff
+with the web technologies I use most. I simply changed things until I was satisfied with the workflow so its still a bit rough.
 
-## Screenshot
+## Contains
+* webpack
+* typescript
+* tailwind
+* slightly altered tauri init
 
-_I **did** say absolutely minimal._
+## Select debug monitor
+There is some code in the main.rs to tell tauri what monitor to use for debuging
+as I found the default behaviour of *it's poping into your face every
+time* quite annoying.
 
-![screenshot](screen.png)
-
-## Binary Sizes
-
-The following binaries have had been built with `--release` and have had
-`strip --strip-all` run on them.
-
-| Configuration | Size (MiB) | Size (bytes) |
-| ------------- | ---------- | ------------ |
-| _stable_ | 3.1MiB | 3,162,136 |
-| `build-std` | 2.8MiB | 2,859,032 |
-| `build-std` + `build-std-features` | 2.5MiB | 2,539,544 |
-
-`Linux dev 5.12.5-arch1-1 #1 SMP PREEMPT Wed, 19 May 2021 10:32:40 +0000 x86_64 GNU/Linux` <sup>btw</sup>
-
-## WebDriver testing in GitHub Actions
-
-You will need to read the code for more information about this, until `tauri-driver` become pre-alpha with docs.
-
-Check the [GitHub Action workflow file](./.github/workflows/webdriver.yml) for the requirements on the CI and the steps
-taken in order to build and then test the application. Also see the [`webdriver/`](webdriver) dir for the actual
-code that runs the WebDriver tests.
-
-You can click the badge at the top of this readme to check the latest WebDriver test results.
-
-
+## Building
+Start Webpack
+´´´
+npm run dev
+´´´
+Start Tailwind
+´´´
+npm run tailwind
+´´´
+Watch and build tauri project after changes with the tauri devserver
+```
+tauri dev
+```
+I found this to work better though because it restarts the building process
+when there is a change while building.
+```
+watchexec -r -w dist cargo run
+```

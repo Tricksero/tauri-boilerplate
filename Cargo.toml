@@ -5,6 +5,10 @@ authors = ["chip reed <chip@chip.sh>"]
 license = "Apache-2.0"
 edition = "2018"
 
+[[bin]]
+name = "hello_tauri"
+path = "src/rs/main.rs"
+
 # Needed to set up some things for Tauri at build time
 [build-dependencies]
 tauri-build = { version = "1.4", features = [] }
@@ -12,6 +16,7 @@ tauri-build = { version = "1.4", features = [] }
 # The actual Tauri dependency, along with `custom-protocol` to serve the pages.
 [dependencies]
 tauri = { version = "1.4", features = ["custom-protocol"] }
+watchexec = "3.0.1"
 
 # Make --release build a binary that is small (opt-level = "s") and fast (lto = true).
 [profile.release]
