@@ -24,13 +24,13 @@ time* quite annoying.
 
 ## Building
 Start Webpack
-´´´
+```
 npm run dev
-´´´
+```
 Start Tailwind
-´´´
+```
 npm run tailwind
-´´´
+```
 Watch and build tauri project after changes with the tauri devserver
 ```
 tauri dev
